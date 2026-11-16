@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daniel Kim</title>
+  <!-- EDIT: one sentence. This shows up in Google results and link previews. -->
+  <meta name="description" content="[one sentence about you]">
+
+  <!-- Link previews (X, iMessage, LinkedIn). Once you have a domain,
+       make og:image a full URL, e.g. https://yourdomain.com/me.jpg -->
+  <meta property="og:title" content="Daniel Kim">
+  <meta property="og:description" content="[one sentence about you]">
+  <meta property="og:image" content="me.jpg">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👋</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #fdfdfb;
+      --card: #ffffff;
+      --text: #5f5f5f;
+      --strong: #141414;
+      --muted: #a0a0a0;
+      --line: #ebebeb;
+      --underline: #c9c9c9;
+      --shadow: 0 24px 60px -12px rgba(0, 0, 0, .18), 0 0 0 1px rgba(0, 0, 0, .05);
+      --backdrop: rgba(250, 250, 250, .55);
+    }
+
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 18px/1.6 "EB Garamond", Garamond, "Times New Roman", serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    body:has(dialog[open]) { overflow: hidden; }
+
+    /* The page is a fixed-width column: widening the window never stretches it. */
+    main {
+      width: 100%;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 80px 20px 96px;
+    }
+
+    /* ---------- intro ---------- */
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      color: var(--strong);
+      margin: 0 0 6px;
+    }
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 18px;
+      margin: 0 0 28px;
+      font-size: 17px;
+    }
+    .socials a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color .15s;
+    }
+    .socials a:hover { color: var(--strong); }
+    p { margin: 0 0 16px; }
+    .divider {
+      margin: 40px 0 8px;
+      text-align: center;
+      letter-spacing: .6em;
+      color: var(--muted);
+      user-select: none;
+    }
+
+    a {
+      color: var(--strong);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-decoration-color: var(--underline);
+      text-underline-offset: 3px;
+      transition: text-decoration-color .15s;
+    }
+    a:hover { text-decoration-color: currentColor; }
+    :focus-visible {
+      outline: 2px solid var(--strong);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    /* ---------- sections ---------- */
+    h2 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--strong);
+      margin: 48px 0 4px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    /* ---------- project rows ---------- */
+    .project {
+      display: grid;
+      grid-template-columns: 168px 1fr;
+      gap: 22px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .thumb {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      padding: 0;
+      border: 0;
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--line);
+      cursor: pointer;
+    }
+    .thumb img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s cubic-bezier(.2, .8, .2, 1), opacity .3s;
+    }
+    .thumb:hover img { transform: scale(1.04); }
+
+    .title-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+    h3 {
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--strong);
+      margin: 0;
+    }
+    .project p { margin: 0 0 8px; font-size: 17px; }
+    h3 .tag { font-weight: 400; font-style: italic; color: var(--muted); }
+    .project p.skills, .modal-body .skills {
+      margin: -2px 0 6px;
+      font-size: 14px;
+      font-style: italic;
+      letter-spacing: .02em;
+      color: var(--muted);
+    }
+
+    /* Icons: write <a class="icon github" href="..."></a> (or x / linkedin / link) */
+    .icons { display: inline-flex; gap: 8px; }
+    .icon {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      background: var(--muted);
+      -webkit-mask: var(--i) center / contain no-repeat;
+      mask: var(--i) center / contain no-repeat;
+      transition: background .15s;
+    }
+    .icon:hover { background: var(--strong); }
+    .icon.github { --i: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.3-.5-1.5.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3'/></svg>"); }
+    .icon.x { --i: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M18.9 1.2h3.7l-8 9.2L24 22.8h-7.4l-5.8-7.6-6.6 7.6H.5l8.6-9.8L0 1.2h7.6l5.2 6.9zm-1.3 19.4h2L6.5 3.2H4.3z'/></svg>"); }
+    .icon.linkedin { --i: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M20.4 20.5h-3.5v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.4V9h3.4v1.6c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5zM5.3 7.4a2 2 0 1 1 0-4.1 2 2 0 0 1 0 4.1M7.1 20.5H3.6V9h3.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0'/></svg>"); }
+    .icon.link { --i: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3'/></svg>"); }
+
+    .more {
+      font: inherit;
+      font-size: 16px;
+      color: var(--strong);
+      background: none;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+    }
+    .more span { display: inline-block; transition: transform .2s; }
+    .more:hover span { transform: translateX(3px); }
+
+
+    /* ---------- pop-up ---------- */
+    dialog {
+      width: min(620px, calc(100vw - 32px));
+      max-height: min(86vh, 920px);
+      padding: 0;
+      border: 0;
+      border-radius: 12px;
+      background: var(--card);
+      color: var(--text);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    dialog::backdrop {
+      background: var(--backdrop);
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+    }
+    dialog[open] { animation: pop-in .42s cubic-bezier(.16, 1, .3, 1); }
+    dialog[open]::backdrop { animation: fade-in .3s ease; }
+    dialog.closing { animation: pop-out .2s ease-in forwards; }
+    dialog.closing::backdrop { animation: fade-out .2s ease-in forwards; }
+    @keyframes pop-in { from { opacity: 0; transform: translateY(14px) scale(.98); } }
+    @keyframes pop-out { to { opacity: 0; transform: translateY(8px) scale(.985); } }
+    @keyframes fade-in { from { opacity: 0; } }
+    @keyframes fade-out { to { opacity: 0; } }
+
+    .sheet {
+      max-height: inherit;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+    .close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 1;
+      width: 32px;
+      height: 32px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--card);
+      color: var(--strong);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, .12);
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      opacity: .85;
+      transition: opacity .15s, transform .15s;
+    }
+    .close:hover { opacity: 1; transform: scale(1.06); }
+
+    .modal-hero {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background: var(--line);
+    }
+    .modal-body { padding: 26px 32px 32px; }
+    .modal-body .title-row { margin-bottom: 4px; }
+    .modal-body .skills { margin: 0 0 16px; }
+    .modal-body h3 { font-size: 24px; letter-spacing: -.01em; }
+    .modal-body h4 { color: var(--strong); font-size: 18px; font-weight: 600; margin: 24px 0 6px; }
+    .modal-body ul { padding-left: 20px; margin: 0 0 16px; }
+    .modal-body li { margin-bottom: 10px; padding-left: 2px; }
+    .modal-body li::marker { color: var(--muted); }
+    .modal-body img, .modal-body video {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 8px 0 16px;
+    }
+    .modal-body figure { margin: 8px 0 16px; }
+    .modal-body figure img { margin: 0; }
+    .modal-body figcaption { font-size: 15px; color: var(--muted); margin-top: 8px; text-align: center; }
+    .modal-body iframe {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      border-radius: 8px;
+      margin: 8px 0 16px;
+    }
+
+    /* ---------- phones ---------- */
+    @media (max-width: 540px) {
+      main { padding-top: 48px; }
+      .project { grid-template-columns: 1fr; gap: 14px; }
+      .modal-body { padding: 22px 20px 26px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after, dialog::backdrop { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <!-- ===================== INTRO ===================== -->
+    <h1>Daniel Kim</h1>
+
+    <!-- EDIT: your social links -->
+    <nav class="socials">
+      <a href="https://x.com/dvnyy">X</a>
+      <a href="https://www.linkedin.com/in/danielkim0136/">LinkedIn</a>
+      <a href="https://github.com/dvntekim">GitHub</a>
+      <a href="mailto:danielkim0136@gmail.com">Email</a>
+    </nav>
+
+    <!-- EDIT: a few short lines about you. Add or remove <p> lines freely. -->
+    <p>I'm a 2nd year Electrical Engineering student at the University of New South Wales</p>
+    <p>Currently building a low-power neural sensing chain for brain implants that keeps decoding while the implant stimulates and its electrodes age.</p>
+    <p>Building towards human-machine integration</p>
+
+    <div class="divider">***</div>
+
+
+    <!-- ===================== PROJECTS ===================== -->
+    <!-- To add a project: copy one whole <article> ... </article> block,
+         paste it where you want it, and give it a new unique id.
+         See README.md for the full guide. -->
+    <h2>Projects</h2>
+
+    <article class="project" id="neurochain">
+      <button class="thumb" data-open aria-label="Open NeuroChain (current)">
+        <img src="images/neurochain.svg" alt="">
+      </button>
+      <div class="info">
+        <div class="title-row">
+          <h3>NeuroChain <span class="tag">(current)</span></h3>
+          <span class="icons">
+            <a class="icon github" href="https://github.com/dvntekim/neurochain" aria-label="GitHub"></a>
+            <!-- <a class="icon x" href="https://x.com/dvnyy" aria-label="X"></a> -->
+          </span>
+        </div>
+        <p class="skills">Python · SystemVerilog · ngspice · Verilator · Yosys/nextpnr (ECP5)</p>
+        <p>A modelled implant sensing chain that decodes finger velocity within 5% of a conventional design at ~40× less power (0.48 µW/channel).</p>
+        <button class="more" data-open>Read more <span>→</span></button>
+      </div>
+      <!-- POP-UP CONTENT: everything inside the template block below shows in the pop-up -->
+      <template>
+        <ul>
+          <li>Modelled a full implant sensing chain (electrode → amplifier → ADC → features → decoder) under one power model; the best design uses <strong>0.48 µW/channel</strong> and decodes finger velocity within 5% of a 19.6 µW conventional chain (~40× less power). All results are simulated; nothing has run on hardware yet.</li>
+          <li>Swept amplifier current, ADC resolution, sample rate and feature type on public Neuralink, Nason and NoMAD recordings to map decode accuracy against µW, arriving at a 250 nA amplifier, 8-bit ADC at 2 kS/s and spiking-band power (amplifier = 93% of power).</li>
+          <li>Modelled how stimulation artifacts spread and saturate the front end, and built a fixed-point template canceller that keeps 86% of samples (vs 60% for blanking) and holds decoding at R² 0.707 (vs 0.718 without stimulation).</li>
+          <li>Simulated 39 weeks of electrode degradation; a running z-score stabiliser recovers decoding from R² 0.587 to 0.627 for 0.00034 µW/channel.</li>
+          <li>Implemented the feature path in SystemVerilog, verified bit-exact against the Python reference over 348M samples (0 mismatches); synthesises for a Lattice ECP5 in 489 LUTs for 96 channels.</li>
+          <li>Next: an ADS1299-based recording board with a saline phantom and stimulator to test the model on real signals.</li>
+        </ul>
+      </template>
+    </article>
+
+    <article class="project" id="auditory-model">
+      <button class="thumb" data-open aria-label="Open Computational Auditory Model">
+        <img src="images/auditory-model.svg" alt="">
+      </button>
+      <div class="info">
+        <div class="title-row">
+          <h3>Computational Auditory Model</h3>
+          <span class="icons">
+            <a class="icon github" href="https://github.com/dvntekim" aria-label="GitHub"></a>
+          </span>
+        </div>
+        <p class="skills">MATLAB · DSP · Auditory modelling · UNSW ELEC3104</p>
+        <p>A 512-channel auditory-periphery model that decodes speech pitch from its simulated neural response, including the missing fundamental in telephone speech.</p>
+        <button class="more" data-open>Read more <span>→</span></button>
+      </div>
+      <template>
+        <ul>
+          <li>Built a 512-channel cascaded pole-zero filter bank in MATLAB modelling the basilar membrane's tonotopy, mapping resonator–notch sections onto a logarithmic place–frequency map (35 Hz–7.5 kHz), with spatial differentiation to sharpen each channel's tuning.</li>
+          <li>Modelled inner-hair-cell transduction (half-wave rectification + 30 Hz low-pass) to extract per-channel envelopes, the same envelope stage used by cochlear-implant strategies such as CIS.</li>
+          <li>Decoded speech pitch across the tonotopic channels with a harmonic product spectrum, tracking f0 (110–145 Hz) every 20 ms against a time-domain ground truth.</li>
+          <li>Reproduced the missing-fundamental effect on telephone-band speech, raising pitch-tracking accuracy from 1/44 to <strong>21/44 frames</strong>.</li>
+          <li>Validated the model with synthetic tones of known pitch and traced a systematic ~10% pitch overestimate to where the cascade places its zeros.</li>
+        </ul>
+      </template>
+    </article>
+
+    <article class="project" id="drone">
+      <button class="thumb" data-open aria-label="Open Quadcopter Built from Scratch">
+        <img src="images/placeholder.svg" alt="">
+      </button>
+      <div class="info">
+        <div class="title-row">
+          <h3>Quadcopter Built from Scratch</h3>
+          <span class="icons">
+            <a class="icon github" href="https://github.com/dvntekim" aria-label="GitHub"></a>
+            <a class="icon x" href="https://x.com/dvnyy" aria-label="X"></a>
+          </span>
+        </div>
+        <p class="skills">Betaflight · Soldering & bring-up · [VERIFY: Fusion 360] CAD · UNSW Skylabs</p>
+        <p>A [VERIFY: 5"] FPV quadcopter I designed, specified, soldered and configured end to end on an STM32G473 flight controller [VERIFY: and flew].</p>
+        <button class="more" data-open>Read more <span>→</span></button>
+      </div>
+      <template>
+        <ul>
+          <li>Built a [VERIFY: 5"] FPV quadcopter end to end with UNSW Skylabs: frame design, parts selection, soldering and firmware bring-up.</li>
+          <li>Modelled the frame and component layout in [VERIFY: Fusion 360] before buying any parts.</li>
+          <li>Specified the stack around a GEPRC TAKER G4 35A AIO (STM32G473 flight controller, ICM-42688-P IMU, 4-in-1 ESC), plus motors, props, receiver and battery.</li>
+          <li>Hand-soldered the motors, power lead and receiver to the AIO and performed a current-limited first power-up.</li>
+          <li>Configured Betaflight and flashed Bluejay ESC firmware for RPM telemetry, then tuned the quad [VERIFY: and flew it].</li>
+          <li>Next: designing a 6-layer STM32H743 flight controller, <a href="#">fc-h743</a>, open-sourced under CERN-OHL-P.</li>
+        </ul>
+      </template>
+    </article>
+
+    <article class="project" id="stm32-logger">
+      <button class="thumb" data-open aria-label="Open STM32 Environment Logger">
+        <img src="images/stm32-logger.svg" alt="">
+      </button>
+      <div class="info">
+        <div class="title-row">
+          <h3>STM32 Environment Logger</h3>
+          <span class="icons">
+            <a class="icon github" href="https://github.com/dvntekim" aria-label="GitHub"></a>
+          </span>
+        </div>
+        <p class="skills">C · ARM Cortex-M4 (bare metal) · I²C / UART · Make · OpenOCD</p>
+        <p>Bare-metal C firmware for the STM32L476 that logs an SHT31 sensor every 2 s in a 1.7 KB image, with no HAL.</p>
+        <button class="more" data-open>Read more <span>→</span></button>
+      </div>
+      <template>
+        <ul>
+          <li>Wrote bare-metal C firmware for the STM32L476 that reads an SHT31 temperature/humidity sensor every 2 s and streams readings to a host logger, in a <strong>1.7 KB</strong> image with no HAL, CubeMX or vendor startup code.</li>
+          <li>Wrote the startup code, vector table, linker script and all peripheral drivers (I²C, USART, TIM2) from the reference manual, deriving every timing constant from the 4 MHz clock.</li>
+          <li>Added a CRC-8 check on every reading and I²C bus recovery so logging resumes automatically after the sensor is unplugged and reconnected.</li>
+          <li>Used an interrupt-driven design where the timer ISR only sets a flag and sampling runs in the main loop, so sample spacing is set by the hardware timer.</li>
+          <li>Printed readings in fixed point instead of floats, keeping the image at 1.7 KB vs 21.6 KB for a single float printf.</li>
+          <li>Set up host-side unit tests against the datasheet CRC vector, CI that builds and tests on every push, and a Python logger that writes the stream to CSV.</li>
+        </ul>
+      </template>
+    </article>
+
+
+    <!-- ===================== CRYPTO ===================== -->
+    <h2>Crypto</h2>
+
+    <article class="project" id="big-deal">
+      <button class="thumb" data-open aria-label="Open Big Deal">
+        <img src="images/placeholder.svg" alt="">
+      </button>
+      <div class="info">
+        <div class="title-row">
+          <h3>Big Deal</h3>
+          <span class="icons">
+            <a class="icon x" href="https://x.com/dvnyy" aria-label="X"></a>
+          </span>
+        </div>
+        <p class="skills">[skill, skill]</p>
+        <p>[one line on what Big Deal is]</p>
+        <button class="more" data-open>Read more <span>→</span></button>
+      </div>
+      <template>
+        <ul>
+          <li>[What you built, with the headline result]</li>
+          <li>[What you did → result]</li>
+          <li>[What you did → result]</li>
+        </ul>
+      </template>
+    </article>
+
+  </main>
+
+
+  <!-- The pop-up. You never need to edit this: it fills itself from each project's <template>. -->
+  <dialog id="modal" aria-labelledby="modal-title">
+    <button class="close" aria-label="Close">×</button>
+    <div class="sheet"></div>
+  </dialog>
+
+  <script>
+    const modal = document.getElementById('modal');
+    const sheet = modal.querySelector('.sheet');
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+
+    // Every link to another website opens in a new tab (email links are left alone).
+    function newTabLinks(root) {
+      root.querySelectorAll('a[href^="http"]').forEach(a => {
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+      });
+    }
+    newTabLinks(document);
+
+    function openProject(card) {
+      const img = card.querySelector('.thumb img');
+      const titleRow = card.querySelector('.title-row').cloneNode(true);
+      titleRow.querySelector('h3').id = 'modal-title';
+
+      const body = document.createElement('div');
+      body.className = 'modal-body';
+      body.append(titleRow);
+      const skills = card.querySelector('.skills');
+      if (skills) body.append(skills.cloneNode(true));
+      body.append(card.querySelector('template').content.cloneNode(true));
+
+      sheet.replaceChildren();
+      if (img) {
+        const hero = img.cloneNode();
+        hero.className = 'modal-hero';
+        hero.alt = '';
+        sheet.append(hero);
+      }
+      sheet.append(body);
+      newTabLinks(sheet);
+
+      modal.classList.remove('closing');
+      modal.showModal();
+      sheet.scrollTop = 0;
+      modal.querySelector('.close').blur();
+      history.replaceState(null, '', '#' + card.id);
+    }
+
+    function closeProject() {
+      if (!modal.open || modal.classList.contains('closing')) return;
+      history.replaceState(null, '', location.pathname + location.search);
+      if (reduceMotion.matches) return modal.close();
+      modal.classList.add('closing');
+      modal.addEventListener('animationend', () => {
+        modal.classList.remove('closing');
+        modal.close();
+      }, { once: true });
+    }
+
+    document.querySelectorAll('.project').forEach(card => {
+      // Projects without a <template> get no "Read more" and no pop-up.
+      if (!card.querySelector('template')) {
+        card.querySelectorAll('[data-open]').forEach(el =>
+          el.classList.contains('thumb') ? el.removeAttribute('data-open') : el.remove());
+        card.querySelector('.thumb').style.cursor = 'default';
+        return;
+      }
+      card.querySelectorAll('[data-open]').forEach(el =>
+        el.addEventListener('click', () => openProject(card)));
+    });
+
+    modal.querySelector('.close').addEventListener('click', closeProject);
+    modal.addEventListener('cancel', e => { e.preventDefault(); closeProject(); });
+    modal.addEventListener('click', e => { if (e.target === modal) closeProject(); });
+
+    // Opening a link like yoursite.com/#drone shows that project straight away.
+    const linked = location.hash && document.getElementById(location.hash.slice(1));
+    if (linked && linked.matches('.project') && linked.querySelector('template')) openProject(linked);
+  </script>
+</body>
+</html>

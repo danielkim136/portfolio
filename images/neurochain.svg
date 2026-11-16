@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="NeuroChain signal chain: neural recording to decoded finger velocity, 40x lower power">
+<rect width="1200" height="800" fill="#f4f4f1"/>
+<path d="M90,330L91,335L93,328L94,336L96,343L97,339L98,350L100,329L101,338L103,332L104,332L106,338L107,342L108,344L110,345L111,360L113,348L114,325L115,252L117,372L118,333L120,349L121,334L122,318L124,337L125,331L127,322L128,323L129,325L131,329L132,324L134,328L135,343L137,318L138,317L139,321L141,332L142,315L144,334L145,309L146,311L148,320L149,312L151,314L152,324L153,327L155,322L156,252L158,372L159,326L160,321L162,335L163,317L165,328L166,333L168,328L169,324L170,334L172,327L173,327L175,325L176,346L177,331L179,252L180,372L182,336L183,345L184,342L186,341L187,327L189,341L190,348L191,344L193,349L194,353L196,343L197,356L199,324L200,335L201,313L203,342L204,335L206,348L207,329L208,313L210,341L211,317L213,316L214,325L215,331L217,320L218,325L220,306L221,338L222,321L224,252L225,372L227,322L228,322L230,312L231,319L232,324L234,330L235,320L237,322L238,325L239,328L241,326L242,322L244,321L245,337L246,330L248,329L249,361L251,339L252,340L253,335L255,325L256,345L258,335L259,337L261,252L262,372L263,341L265,340L266,359L268,345L269,331L270,347L272,341L273,340L275,345L276,341L277,356L279,339L280,339L282,346L283,330L284,252L286,372L287,342L289,323L290,333L292,314L293,323L294,326L296,330L297,342L299,340L300,310" fill="none" stroke="#141414" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="195" y="460" font-family="'EB Garamond', Garamond, 'Times New Roman', serif" font-size="30" fill="#5f5f5f" text-anchor="middle" >electrode</text>
+<path d="M318,330 H368" stroke="#a0a0a0" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+<path d="M356,322 L368,330 L356,338" stroke="#a0a0a0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M384,275 L384,385 L474,330 Z" fill="none" stroke="#141414" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="420" y="460" font-family="'EB Garamond', Garamond, 'Times New Roman', serif" font-size="30" fill="#5f5f5f" text-anchor="middle" >amp</text>
+<path d="M490,330 H540" stroke="#a0a0a0" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+<path d="M528,322 L540,330 L528,338" stroke="#a0a0a0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<rect x="556" y="275" width="110" height="110" rx="6" fill="none" stroke="#141414" stroke-width="2.5"/>
+<path d="M576,360L590,360L590,346L604,346L604,332L618,332L618,318L632,318L632,304L646,304" fill="none" stroke="#141414" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="611" y="460" font-family="'EB Garamond', Garamond, 'Times New Roman', serif" font-size="30" fill="#5f5f5f" text-anchor="middle" >ADC</text>
+<path d="M682,330 H732" stroke="#a0a0a0" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+<path d="M720,322 L732,330 L720,338" stroke="#a0a0a0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<rect x="748" y="275" width="110" height="110" rx="6" fill="none" stroke="#141414" stroke-width="2.5"/>
+<rect x="768" y="335" width="9" height="30" fill="#141414"/>
+<rect x="784" y="313" width="9" height="52" fill="#141414"/>
+<rect x="800" y="343" width="9" height="22" fill="#141414"/>
+<rect x="816" y="301" width="9" height="64" fill="#141414"/>
+<rect x="832" y="325" width="9" height="40" fill="#141414"/>
+<text x="803" y="460" font-family="'EB Garamond', Garamond, 'Times New Roman', serif" font-size="30" fill="#5f5f5f" text-anchor="middle" >SBP</text>
+<path d="M874,330 H924" stroke="#a0a0a0" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+<path d="M912,322 L924,330 L912,338" stroke="#a0a0a0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M940,330 H1110" stroke="#d9d9d9" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"/>
+<path d="M940,328L941,327L943,326L944,325L946,323L947,321L949,319L950,317L951,314L953,311L954,308L956,304L957,300L959,296L960,291L961,287L963,282L964,278L966,274L967,271L969,267L970,265L971,263L973,262L974,262L976,263L977,264L979,266L980,269L981,272L983,276L984,280L986,284L987,289L989,293L990,297L991,302L993,306L994,309L996,313L997,316L999,319L1000,322L1001,324L1003,327L1004,329L1006,332L1007,334L1009,337L1010,340L1011,343L1013,347L1014,351L1016,355L1017,359L1019,363L1020,367L1021,371L1023,374L1024,376L1026,378L1027,380L1029,380L1030,379L1031,378L1033,376L1034,373L1036,370L1037,366L1039,362L1040,358L1041,354L1043,350L1044,346L1046,343L1047,340L1049,337L1050,335L1051,333L1053,331L1054,329L1056,327L1057,325L1059,323L1060,320L1061,318L1063,316L1064,313L1066,310L1067,307L1069,305L1070,302L1071,300L1073,297L1074,295L1076,294L1077,293L1079,292L1080,292L1081,293L1083,294L1084,295L1086,297L1087,299L1089,302L1090,304L1091,307L1093,310L1094,312L1096,315L1097,317L1099,319L1100,321L1101,323L1103,324L1104,326L1106,327L1107,327L1109,328L1110,329" fill="none" stroke="#2f4a7a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1025" y="460" font-family="'EB Garamond', Garamond, 'Times New Roman', serif" font-size="30" fill="#2f4a7a" text-anchor="middle" >finger velocity</text>
+<path d="M90,540 H1110" stroke="#ebebeb" stroke-width="2"/>
+<text x="90" y="600" font-family="'EB Garamond', Garamond, 'Times New Roman', serif" font-size="28" fill="#5f5f5f" text-anchor="start" >conventional</text>
+<rect x="290" y="578" width="820.0" height="24" rx="3" fill="#d9d9d9"/>
+<text x="90" y="662" font-family="'EB Garamond', Garamond, 'Times New Roman', serif" font-size="28" fill="#2f4a7a" text-anchor="start" >NeuroChain</text>
+<rect x="290" y="640" width="20.1" height="24" rx="3" fill="#2f4a7a"/>
+<text x="1110" y="564" font-family="'EB Garamond', Garamond, 'Times New Roman', serif" font-size="28" fill="#a0a0a0" text-anchor="end" >19.6 µW</text>
+<text x="330" y="663" font-family="'EB Garamond', Garamond, 'Times New Roman', serif" font-size="30" fill="#141414" text-anchor="start" >0.48 µW  ·  40× less power</text>
+</svg>

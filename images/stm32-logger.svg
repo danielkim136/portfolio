@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="STM32 logger: SHT31 sensor over I2C to STM32L476 over UART to a CSV log">
+<rect width="1200" height="800" fill="#f4f4f1"/>
+<g transform="translate(30,0)">
+<rect x="120" y="250" width="100" height="100" rx="8" fill="none" stroke="#141414" stroke-width="2.5"/>
+<circle cx="170" cy="300" r="16" fill="none" stroke="#141414" stroke-width="2.5"/>
+<path d="M108,267 h12 M220,267 h12" stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M108,289 h12 M220,289 h12" stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M108,311 h12 M220,311 h12" stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M108,333 h12 M220,333 h12" stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
+<text x="170" y="415" font-family="'EB Garamond', Garamond, 'Times New Roman', serif" font-size="30" fill="#5f5f5f" text-anchor="middle" >SHT31</text>
+<path d="M255,300 H405" stroke="#a0a0a0" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+<path d="M393,292 L405,300 L393,308" stroke="#a0a0a0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="330" y="278" font-family="'EB Garamond', Garamond, 'Times New Roman', serif" font-size="28" fill="#a0a0a0" text-anchor="middle" >I²C</text>
+<rect x="440" y="215" width="170" height="170" rx="6" fill="none" stroke="#141414" stroke-width="2.5"/>
+<circle cx="464" cy="239" r="6" fill="#141414"/>
+<path d="M460.0,211 v-16 M460.0,389 v16 M436,235.0 h-16 M614,235.0 h16 M478.6,211 v-16 M478.6,389 v16 M436,253.6 h-16 M614,253.6 h16 M497.1,211 v-16 M497.1,389 v16 M436,272.1 h-16 M614,272.1 h16 M515.7,211 v-16 M515.7,389 v16 M436,290.7 h-16 M614,290.7 h16 M534.3,211 v-16 M534.3,389 v16 M436,309.3 h-16 M614,309.3 h16 M552.9,211 v-16 M552.9,389 v16 M436,327.9 h-16 M614,327.9 h16 M571.4,211 v-16 M571.4,389 v16 M436,346.4 h-16 M614,346.4 h16 M590.0,211 v-16 M590.0,389 v16 M436,365.0 h-16 M614,365.0 h16 " stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
+<text x="525" y="310" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="30" fill="#141414" text-anchor="middle" >STM32</text>
+<text x="525" y="455" font-family="'EB Garamond', Garamond, 'Times New Roman', serif" font-size="30" fill="#5f5f5f" text-anchor="middle" >1.7 KB firmware</text>
+<path d="M645,300 H795" stroke="#a0a0a0" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+<path d="M783,292 L795,300 L783,308" stroke="#a0a0a0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="720" y="278" font-family="'EB Garamond', Garamond, 'Times New Roman', serif" font-size="28" fill="#a0a0a0" text-anchor="middle" >UART</text>
+<path d="M830,230 H920 L950,260 V370 H830 Z" fill="none" stroke="#141414" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M920,230 V260 H950" fill="none" stroke="#141414" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M850,285 H930" stroke="#a0a0a0" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="20 10"/>
+<path d="M850,305 H930" stroke="#a0a0a0" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="20 10"/>
+<path d="M850,325 H930" stroke="#a0a0a0" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="20 10"/>
+<path d="M850,345 H930" stroke="#a0a0a0" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="20 10"/>
+<text x="890.0" y="415" font-family="'EB Garamond', Garamond, 'Times New Roman', serif" font-size="30" fill="#5f5f5f" text-anchor="middle" >CSV log</text>
+<path d="M120,500 H1080" stroke="#ebebeb" stroke-width="2"/>
+<path d="M120,590L125,592L130,591L135,590L141,591L146,591L151,590L156,590L161,595L166,592L172,592L177,593L182,592L187,590L192,591L197,595L203,594L208,594L213,597L218,594L223,596L228,600L233,595L239,599L244,601L249,600L254,600L259,600L264,602L270,606L275,606L280,608L285,608L290,612L295,609L301,610L306,616L311,614L316,613L321,615L326,616L331,617L337,619L342,619L347,621L352,625L357,628L362,625L368,625L373,630L378,630L383,630L388,634L393,635L398,635L404,638L409,639L414,641L419,643L424,645L429,643L435,644L440,646L445,647L450,648L455,650L460,650L466,651L471,654L476,652L481,654L486,660L491,656L496,657L502,657L507,660L512,659L517,660L522,661L527,662L533,664L538,660L543,659L548,663L553,661L558,667L564,665L569,665L574,661L579,662L584,662L589,659L594,663L600,664L605,662L610,660L615,659L620,663L625,661L631,661L636,657L641,659L646,659L651,653L656,652L662,654L667,651L672,653L677,651L682,652L687,647L692,648L698,645L703,646L708,645L713,644L718,641L723,642L729,639L734,636L739,636L744,633L749,634L754,636L759,631L765,631L770,630L775,629L780,628L785,625L790,628L796,622L801,624L806,620L811,619L816,622L821,619L827,618L832,618L837,615L842,613L847,613L852,616L857,612L863,612L868,610L873,607L878,607L883,606L888,610L894,603L899,605L904,607L909,599L914,601L919,602L925,600L930,601L935,599L940,600" fill="none" stroke="#a0a0a0" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="960" y="651.6041083714213" font-family="'EB Garamond', Garamond, 'Times New Roman', serif" font-size="28" fill="#2f4a7a" text-anchor="start" >°C</text>
+<text x="960" y="596.3638106027557" font-family="'EB Garamond', Garamond, 'Times New Roman', serif" font-size="28" fill="#a0a0a0" text-anchor="start" >%RH</text>
+<path d="M120,644L125,643L130,644L135,640L141,640L146,640L151,643L156,639L161,642L166,640L172,637L177,636L182,636L187,637L192,634L197,635L203,634L208,631L213,632L218,631L223,631L228,628L233,627L239,630L244,626L249,623L254,626L259,621L264,619L270,620L275,618L280,619L285,618L290,613L295,617L301,611L306,615L311,610L316,612L321,606L326,607L331,603L337,604L342,606L347,601L352,605L357,599L362,599L368,600L373,596L378,595L383,594L388,595L393,590L398,593L404,587L409,592L414,588L419,585L424,584L429,587L435,582L440,583L445,582L450,582L455,580L460,578L466,575L471,579L476,578L481,577L486,573L491,578L496,574L502,575L507,573L512,569L517,574L522,573L527,577L533,570L538,571L543,569L548,574L553,571L558,568L564,568L569,569L574,570L579,570L584,569L589,570L594,568L600,565L605,569L610,570L615,570L620,574L625,570L631,574L636,570L641,570L646,573L651,572L656,576L662,573L667,579L672,576L677,576L682,574L687,576L692,576L698,580L703,580L708,578L713,586L718,586L723,583L729,584L734,585L739,586L744,584L749,589L754,593L759,594L765,594L770,593L775,595L780,591L785,595L790,597L796,599L801,602L806,598L811,601L816,602L821,607L827,603L832,608L837,610L842,611L847,614L852,612L857,611L863,617L868,614L873,614L878,616L883,615L888,618L894,619L899,622L904,619L909,623L914,626L919,622L925,626L930,629L935,628L940,630" fill="none" stroke="#2f4a7a" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+</svg>
