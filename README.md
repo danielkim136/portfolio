@@ -172,10 +172,54 @@ If something breaks, it's almost always a missing closing tag (for example a `<p
 
 ---
 
-## Put it online (free)
+## Publish your changes (push to GitHub)
 
-1. Create a GitHub repo and push this folder to it.
-2. On [vercel.com](https://vercel.com), click **Add New → Project**, import the repo, and deploy. Leave every setting at its default. Cloudflare Pages, Netlify or GitHub Pages also work.
-3. From then on, every `git push` updates the live site.
+The site is hosted free on **GitHub Pages** from the repo [danielkim136/portfolio](https://github.com/danielkim136/portfolio), at **https://dvnyy.com**. Pushing to GitHub is what updates the live site.
 
-**Custom domain (~US$10–15/year):** buy one from Cloudflare, Porkbun or Namecheap. In Vercel, add it under **Project → Settings → Domains**, then copy the DNS records Vercel shows you into your registrar's settings. After that, change `og:image` at the top of `index.html` to the full URL, for example `https://yourdomain.com/me.jpg`.
+### Every time you want your changes live
+
+Open Terminal and run:
+
+```
+cd ~/Portfolio
+git add -A
+git commit -m "describe what you changed"
+git push
+```
+
+- `git add -A` stages every change: edited, new and deleted files.
+- `git commit -m "…"` saves a snapshot with a short note. Use something like `"Add drone photo"` or `"Update NeuroChain bullets"`.
+- `git push` uploads it. dvnyy.com updates **1–2 minutes** later.
+
+If you still see the old version, your browser is showing a saved copy (GitHub tells browsers to keep it for up to 10 minutes). Press **Cmd + Shift + R** to force a fresh copy.
+
+### Handy checks
+
+| Command | What it tells you |
+|---|---|
+| `git status` | What's changed since your last commit (red = not staged, green = staged) |
+| `git log --oneline -5` | Your last 5 commits |
+| `git diff` | Exactly which lines you changed |
+
+### If something goes wrong
+
+- **`git push` is rejected with "fetch first" or "non-fast-forward".** GitHub has a change your Mac doesn't (for example, you edited a file on github.com). Run `git pull`, then `git push` again.
+- **"nothing to commit".** You haven't saved any changes in your editor yet, or they're already pushed.
+- **The live site didn't change.** Check the progress on GitHub under the repo's **Actions** tab, or **Settings → Pages**.
+
+### Before you push images
+
+- **Photos straight from your phone are huge** (5–20 MB). Shrink them first so the page loads fast. In Terminal:
+  ```
+  sips -s format jpeg -s formatOptions 82 -Z 1600 images/BIG.png --out images/small.jpg
+  ```
+  That makes a 1600px-wide JPG, usually 200–400 KB. You can also use [squoosh.app](https://squoosh.app).
+- **HEIC files (iPhone photos) don't show in most browsers.** Convert them with the same command, using the `.heic` file as the input.
+- **Avoid spaces in filenames.** Use `drone-photo.jpg`, not `drone photo.jpg`.
+- `.gitignore` keeps `.heic` files and other full-size originals out of GitHub, so you can leave them in the folder.
+
+### Domain settings (already done, for reference)
+
+- **Porkbun DNS:** four A records for `dvnyy.com` pointing to `185.199.108.153`, `.109.153`, `.110.153` and `.111.153`, plus a CNAME record for `www` pointing to `danielkim136.github.io`.
+- **The `CNAME` file in this folder** tells GitHub to serve the site at dvnyy.com. Don't delete it.
+- **GitHub → repo → Settings → Pages:** the custom domain is `dvnyy.com`, and **Enforce HTTPS** is on.
