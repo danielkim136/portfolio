@@ -65,7 +65,7 @@ Each project is one `<article>` block. Here's an example with notes on every par
     <div class="title-row">
       <h3>Drone</h3>                                  <!-- project name -->
       <span class="icons">                            <!-- icons: keep the ones you want, delete the rest -->
-        <a class="icon github"   href="https://github.com/dvntekim/drone" aria-label="GitHub"></a>
+        <a class="icon github"   href="https://github.com/danielkim136/drone" aria-label="GitHub"></a>
         <a class="icon x"        href="https://x.com/dvnyy/status/123"   aria-label="X"></a>
         <a class="icon linkedin" href="https://linkedin.com/..."         aria-label="LinkedIn"></a>
         <a class="icon link"     href="https://anything.com"             aria-label="Website"></a>

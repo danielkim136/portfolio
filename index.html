@@ -40,7 +40,8 @@
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font: 18px/1.6 "EB Garamond", Garamond, "Times New Roman", serif;
+      font: 15.5px/1.7 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", system-ui,
+            "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
     }
     body:has(dialog[open]) { overflow: hidden; }
@@ -53,7 +54,26 @@
       padding: 80px 20px 96px;
     }
 
+    /* ---------- background artwork (bottom-right watermark) ---------- */
+    .bg-art {
+      position: fixed;
+      right: -2vw;
+      bottom: -4vh;
+      z-index: 0;
+      width: clamp(240px, calc(52vw - 340px), 480px);
+      height: auto;
+      opacity: .08;               /* EDIT: 0 = invisible, 1 = full strength */
+      mix-blend-mode: multiply;   /* makes the white parts of the image disappear */
+      pointer-events: none;
+      user-select: none;
+    }
+    main { position: relative; z-index: 1; }
+    /* Only show it when there's empty space beside the column, so it never sits behind text. */
+    @media (max-width: 1180px) { .bg-art { display: none; } }
+
     /* ---------- intro ---------- */
+    /* Headings use EB Garamond; everything else is sans-serif. */
+    h1, h2, h3, h4 { font-family: "EB Garamond", Garamond, "Times New Roman", serif; }
     h1 {
       font-size: 28px;
       font-weight: 600;
@@ -66,7 +86,7 @@
       flex-wrap: wrap;
       gap: 4px 18px;
       margin: 0 0 28px;
-      font-size: 17px;
+      font-size: 15px;
     }
     .socials a {
       color: var(--text);
@@ -148,12 +168,12 @@
       color: var(--strong);
       margin: 0;
     }
-    .project p { margin: 0 0 8px; font-size: 17px; }
+    .project p { margin: 0 0 8px; font-size: 15px; }
     h3 .tag { font-weight: 400; font-style: italic; color: var(--muted); }
     .project p.skills, .modal-body .skills {
       margin: -2px 0 6px;
-      font-size: 14px;
-      font-style: italic;
+      font-size: 12.5px;
+      font-style: normal;
       letter-spacing: .02em;
       color: var(--muted);
     }
@@ -177,7 +197,7 @@
 
     .more {
       font: inherit;
-      font-size: 16px;
+      font-size: 14px;
       color: var(--strong);
       background: none;
       border: 0;
@@ -263,7 +283,7 @@
     }
     .modal-body figure { margin: 8px 0 16px; }
     .modal-body figure img { margin: 0; }
-    .modal-body figcaption { font-size: 15px; color: var(--muted); margin-top: 8px; text-align: center; }
+    .modal-body figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; text-align: center; }
     .modal-body iframe {
       display: block;
       width: 100%;
@@ -286,6 +306,9 @@
   </style>
 </head>
 <body>
+  <!-- Background artwork. To remove it, delete this line. -->
+  <img class="bg-art" src="images/bg-art.jpg" alt="" aria-hidden="true">
+
   <main>
     <!-- ===================== INTRO ===================== -->
     <h1>Daniel Kim</h1>
@@ -294,14 +317,14 @@
     <nav class="socials">
       <a href="https://x.com/dvnyy">X</a>
       <a href="https://www.linkedin.com/in/danielkim0136/">LinkedIn</a>
-      <a href="https://github.com/dvntekim">GitHub</a>
+      <a href="https://github.com/danielkim136">GitHub</a>
       <a href="mailto:danielkim0136@gmail.com">Email</a>
     </nav>
 
     <!-- EDIT: a few short lines about you. Add or remove <p> lines freely. -->
     <p>I'm a 2nd year Electrical Engineering student at the University of New South Wales</p>
     <p>Currently building a low-power neural sensing chain for brain implants that keeps decoding while the implant stimulates and its electrodes age.</p>
-    <p>Building towards human-machine integration</p>
+    <p>Open to work and other opportunities</p>
 
     <div class="divider">***</div>
 
@@ -320,7 +343,7 @@
         <div class="title-row">
           <h3>NeuroChain <span class="tag">(current)</span></h3>
           <span class="icons">
-            <a class="icon github" href="https://github.com/dvntekim/neurochain" aria-label="GitHub"></a>
+            <a class="icon github" href="https://github.com/danielkim136/neurochain" aria-label="GitHub"></a>
             <!-- <a class="icon x" href="https://x.com/dvnyy" aria-label="X"></a> -->
           </span>
         </div>
@@ -343,16 +366,16 @@
 
     <article class="project" id="auditory-model">
       <button class="thumb" data-open aria-label="Open Computational Auditory Model">
-        <img src="images/auditory-model.svg" alt="">
+        <img src="images/cochleathumbnail.png" alt="Computational Auditory Model">
       </button>
       <div class="info">
         <div class="title-row">
           <h3>Computational Auditory Model</h3>
           <span class="icons">
-            <a class="icon github" href="https://github.com/dvntekim" aria-label="GitHub"></a>
+            <a class="icon github" href="https://github.com/danielkim136" aria-label="GitHub"></a>
           </span>
         </div>
-        <p class="skills">MATLAB · DSP · Auditory modelling · UNSW ELEC3104</p>
+        <p class="skills">MATLAB · DSP · Auditory modelling</p>
         <p>A 512-channel auditory-periphery model that decodes speech pitch from its simulated neural response, including the missing fundamental in telephone speech.</p>
         <button class="more" data-open>Read more <span>→</span></button>
       </div>
@@ -360,7 +383,7 @@
         <ul>
           <li>Built a 512-channel cascaded pole-zero filter bank in MATLAB modelling the basilar membrane's tonotopy, mapping resonator–notch sections onto a logarithmic place–frequency map (35 Hz–7.5 kHz), with spatial differentiation to sharpen each channel's tuning.</li>
           <li>Modelled inner-hair-cell transduction (half-wave rectification + 30 Hz low-pass) to extract per-channel envelopes, the same envelope stage used by cochlear-implant strategies such as CIS.</li>
-          <li>Decoded speech pitch across the tonotopic channels with a harmonic product spectrum, tracking f0 (110–145 Hz) every 20 ms against a time-domain ground truth.</li>
+          <li>Decoded speech pitch across the tonotopic channels with a harmonic product spectrum, tracking f_0 (110–145 Hz) every 20 ms against a time-domain ground truth.</li>
           <li>Reproduced the missing-fundamental effect on telephone-band speech, raising pitch-tracking accuracy from 1/44 to <strong>21/44 frames</strong>.</li>
           <li>Validated the model with synthetic tones of known pitch and traced a systematic ~10% pitch overestimate to where the cascade places its zeros.</li>
         </ul>
@@ -373,24 +396,23 @@
       </button>
       <div class="info">
         <div class="title-row">
-          <h3>Quadcopter Built from Scratch</h3>
+          <h3>Quadcopter</h3>
           <span class="icons">
-            <a class="icon github" href="https://github.com/dvntekim" aria-label="GitHub"></a>
-            <a class="icon x" href="https://x.com/dvnyy" aria-label="X"></a>
+            <!-- <a class="icon github" href="https://github.com/danielkim136" aria-label="GitHub"></a>
+            <a class="icon x" href="https://x.com/dvnyy" aria-label="X"></a> -->
           </span>
         </div>
-        <p class="skills">Betaflight · Soldering & bring-up · [VERIFY: Fusion 360] CAD · UNSW Skylabs</p>
-        <p>A [VERIFY: 5"] FPV quadcopter I designed, specified, soldered and configured end to end on an STM32G473 flight controller [VERIFY: and flew].</p>
+        <p class="skills">Betaflight · Soldering & bring-up · Fusion 360 CAD</p>
+        <p>Fun project building a quadcopter from scratch</p>
         <button class="more" data-open>Read more <span>→</span></button>
       </div>
       <template>
         <ul>
-          <li>Built a [VERIFY: 5"] FPV quadcopter end to end with UNSW Skylabs: frame design, parts selection, soldering and firmware bring-up.</li>
-          <li>Modelled the frame and component layout in [VERIFY: Fusion 360] before buying any parts.</li>
+          <li>Built a 5" FPV quadcopter end to end: frame design, parts selection, soldering and firmware bring-up.</li>
+          <li>Modelled the frame and component layout in Fusion 360 before buying any parts.</li>
           <li>Specified the stack around a GEPRC TAKER G4 35A AIO (STM32G473 flight controller, ICM-42688-P IMU, 4-in-1 ESC), plus motors, props, receiver and battery.</li>
           <li>Hand-soldered the motors, power lead and receiver to the AIO and performed a current-limited first power-up.</li>
-          <li>Configured Betaflight and flashed Bluejay ESC firmware for RPM telemetry, then tuned the quad [VERIFY: and flew it].</li>
-          <li>Next: designing a 6-layer STM32H743 flight controller, <a href="#">fc-h743</a>, open-sourced under CERN-OHL-P.</li>
+          <li>Configured Betaflight and flashed Bluejay ESC firmware for RPM telemetry, then tuned the quad and flew it.</li>
         </ul>
       </template>
     </article>
@@ -403,7 +425,8 @@
         <div class="title-row">
           <h3>STM32 Environment Logger</h3>
           <span class="icons">
-            <a class="icon github" href="https://github.com/dvntekim" aria-label="GitHub"></a>
+            <!-- <a class="icon github" href="https://github.com/danielkim136" aria-label="GitHub"></a>
+            <a class="icon x" href="https://x.com/dvnyy" aria-label="X"></a> -->
           </span>
         </div>
         <p class="skills">C · ARM Cortex-M4 (bare metal) · I²C / UART · Make · OpenOCD</p>
@@ -428,24 +451,22 @@
 
     <article class="project" id="big-deal">
       <button class="thumb" data-open aria-label="Open Big Deal">
-        <img src="images/placeholder.svg" alt="">
+        <img src="images/bigdeal-logo.jpeg" alt="Big Deal">
       </button>
       <div class="info">
         <div class="title-row">
           <h3>Big Deal</h3>
           <span class="icons">
-            <a class="icon x" href="https://x.com/dvnyy" aria-label="X"></a>
+            <a class="icon x" href="https://x.com/dvnyy/status/1731327979899462091" aria-label="X"></a>
           </span>
         </div>
-        <p class="skills">[skill, skill]</p>
-        <p>[one line on what Big Deal is]</p>
+        <p>Exclusive community using proprietary tools to trade crypto markets</p>
         <button class="more" data-open>Read more <span>→</span></button>
       </div>
       <template>
         <ul>
-          <li>[What you built, with the headline result]</li>
-          <li>[What you did → result]</li>
-          <li>[What you did → result]</li>
+          <li>9 figures in total profits from trading various trends such as NFTs, DeFi protocols, farming airdrops, perps and other profitable opportunities</li>
+          <li>My passion in high school</li>
         </ul>
       </template>
     </article>
